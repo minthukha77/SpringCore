@@ -1,0 +1,51 @@
+For create Bean and for use 
+
+    1.Create a Java Bean 
+
+    2.@Config Bean in Confid file 
+
+    3.Autowired in controller 
+
+ 
+
+ Bean has lifecycles.
+    @PostConstruct
+    public void init(){
+        log.info("PostConstuct Example bean");
+    }
+
+    @PreDestroy
+    public void destroy(){
+        log.info("@PreDestroy Example Bean");
+    }
+
+
+    After created bean, need to register immediately services and code
+    must place on @PostConstruct
+
+
+
+
+
+    What means Singleton bean?
+
+    It is a class and one instance. This one instance will be used in everywhere in the entire
+    whole application. This is singleton.
+
+
+    Class: You define a class, like MyService.
+    Instance: Spring creates only one object (instance) of that class.
+    Usage: This one instance is shared and used everywhere in your application, whenever the class is needed.
+
+
+
+    Singleton beans can face problem in session.
+
+    For example,
+
+        In a shopping cart, cart class is one class exists. But share entire application.
+        But, customers are different. So, same session error can possible.
+
+        So, we need to add @SessionScope on ShoppingCart class. 
+
+        It can solve error.
